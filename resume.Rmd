@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 # Set this to true to have links turned into footnotes at the end of the document
 PDF_EXPORT <- FALSE
 
-# Holds all the links that were inserted for placement at the end
+# Holds all the links that were inserted for placement at the end and
 links <- c()
 
 source( "https://raw.githubusercontent.com/DS4PS/cv/master/parsing_functions.R" )
