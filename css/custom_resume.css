@@ -122,4 +122,61 @@ ul li{ margin: 0 0 .06in 0; }
 /* tighten the contact/tools blocks in the sidebar */
 #contact, #tools, #languages{ margin-bottom: .14in; }
 
+/* ======== Subtle on-scroll animations ======== */
+:root{
+  --reveal-duration: 600ms;
+  --reveal-ease: cubic-bezier(.2,.65,.2,1);
+  --reveal-translate: 14px;
+}
+
+/* default: visible (no-JS/print) */
+.reveal { opacity: 1; transform: none; }
+
+/* animated state (JS will add .visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-translate));
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease);
+  will-change: opacity, transform;
+}
+
+/* make it visible when intersecting */
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children (lists, stacked items) */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(var(--reveal-translate));
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease);
+}
+.reveal-stagger.visible > * {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger.visible > * {
+  /* stagger via index set by JS as --delay */
+  transition-delay: var(--delay, 0ms);
+}
+
+/* Print/PDF: disable animations completely */
+@media print {
+  .reveal,
+  .reveal.visible,
+  .reveal-stagger,
+  .reveal-stagger.visible,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
 
