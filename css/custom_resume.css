@@ -87,3 +87,39 @@
   margin-bottom: 0.6rem;
 }
 
+/* --- layout & spacing tweaks --- */
+:root{
+  /* slightly wider main column, slightly slimmer sidebar */
+  --sidebar-width: 11.8rem;
+  --sidebar-horizontal-padding: 0.10in;
+}
+
+/* reduce the “card” feel */
+.main-block{
+  box-shadow: none;           /* remove heavy shadow */
+  border: 0;                  /* remove border */
+  margin-top: 0.15in;         /* space between sections */
+  padding-top: 0.08in;
+}
+
+/* gentler separators under H2 section titles */
+.section.level2 > h2{
+  margin-bottom: 0.06in;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  padding-bottom: 0.04in;
+}
+
+/* give headings a touch more breathing room */
+h1, h2, h3{ line-height: 1.15; }
+h3{ margin-top: .04in; }
+
+/* bullet readability */
+ul li{ margin: 0 0 .06in 0; }
+
+/* keep the sidebar full height (prevents awkward gaps) */
+.aside{ height: 100%; }
+
+/* tighten the contact/tools blocks in the sidebar */
+#contact, #tools, #languages{ margin-bottom: .14in; }
+
+

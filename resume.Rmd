@@ -26,7 +26,7 @@ PDF_EXPORT <- FALSE
 # Holds all the links that were inserted for placement at the end
 links <- c()
 
-source('parsing_functions.R')
+source( "https://raw.githubusercontent.com/DS4PS/cv/master/parsing_functions.R" )
 
 position_data <- readr::read_csv(
   "positions.csv",
